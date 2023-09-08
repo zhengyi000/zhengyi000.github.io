@@ -5,7 +5,7 @@
 		<title>39 David Studio</title>
 		<link href="css/index.css" rel="stylesheet" type="text/css" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-
+		<script src="http://cdn.staticfile.org/jquery/3.7.1/jquery.js"></script>
 	</head>
 	<body>
 		<header>
@@ -37,9 +37,44 @@
 					</ul>
 				</div>
 			</div>
-			<div class="float_clear"></div>
+			<!-- <div class="float_clear"></div> -->
+			<div class="box">
+				<div class="box_title">
+					<h4>倒数日</h2>
+				</div>
+				<div class="box_main">
+					<style>
+						.cntd{
+							font-size:40px;
+							color: crimson;
+							line-height: 1em;
+						}
+					</style>
+					<script>
+						function cd(date){
+							var date1=new Date(date);
+							var date2=new Date();
+							var date3=date1-date2;
+							let re=Math.round(date3/(1000*60*60*24))
+							return re
+						}
+						$(function (){
+							$("#cntdAgm").text(cd("2023,9,23,20:00"))
+							$("#cntdFExam").text(cd("2024-01-23,8:00"))
+							$("#cntdTNDS").text(cd("2023-11-25,16:00"))
+						})
+					</script>
+					
+					<ul>
+						<li><h2>距离杭州亚运会还有<span class="cntd" id="cntdAgm">X</span>天</h2></li>
+						<li><h2>距离电子职校校运会还有<span class="cntd" id="cntdHEIVSgm">未公布</span>天</h2></li>
+						<li><h2>距离期末考试还有<span class="cntd" id="cntdFExam">X</span>天</h2></li>
+						<li><h2>距离2023郑毅18周岁生日会暨成人礼还有<span class="cntd" id="cntdTNDS">X</span>天</h2></li>
+					</ul>
+				</div>
+			</div>
 		</main>
-		
+		<div class="float_clear"></div>
 		<footer>
 			<p>2023 DVZYS.TOP版权所有</p>
 			<p><a href="https://github.com/zhengyi000/zhengyi000.github.io">访问Github项目页</a></p>

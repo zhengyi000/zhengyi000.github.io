@@ -5,8 +5,8 @@
 		<title>39 David Studio</title>
 		<link href="../css/index.css" rel="stylesheet" type="text/css" />
 		<link href="../css/blogs.css" rel="stylesheet" type="text/css" />
-		<meta name="viewport"
-			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="http://cdn.staticfile.org/jquery/3.7.1/jquery.js"></script>
 	</head>
 	<style>
 		table {
@@ -28,9 +28,107 @@
 		img{
 			cursor:none;
 		}
+		.mask{
+			overflow: hidden;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #808080;
+			opacity: 50%;
+		}
+		
+		.window{
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 320px;
+			height: 320px;
+			background-color: aliceblue;
+			border-radius: 10px;
+		}
+		.win_title{
+			height: 40px;
+			border-bottom: 1px solid;
+		}
+		.win_title p{
+			padding:8px;
+			font-size: 22px;
+		}
+		.price{
+			font-size: 35px;
+			color: orange;
+		}
+		.window .win_content table {
+		  padding: 1px;
+		}
+		.window .win_content table tr {
+		  margin: 3px;
+		}
+		#topay{
+			font-size: 15px;
+			margin-left: 50%;
+			transform: translate(-50%);
+		}
+		main p a:active{
+			color: red;
+		}
 	</style>
+	<script>
+		alert("这是我的遮罩层学习的内容,实际上不用付费,只要点击“去支付”按钮即可")
+		function smask(){
+			$(".mask").animate({width:String($(document).width()),height:String($(document).height()),opacity:"50%",display:"block"},500)
+			$(".window").animate({width:"320px",height:"320px",opacity:"100%",left:"50%",top:"50%",display:"block"},500)
+		}
+		function dmask(){
+			$(".mask").animate({width:"0",height:"0",opacity:"0",display:"none"},500)
+			$(".window").animate({width:"0px",height:"0px",opacity:"0%",left:"0%",top:"0%",display:"none"},500)
+		}
+		$(function(){
+			smask()
+			$("#topay").click(function(){
+				 dmask()
+			})
+		})
+	</script>
 	<body>
 		<header>
+			<div class="win_mask">
+				<div class="mask">
+					<p style="font-size: 40px;color: #000000;">这是我的遮罩层学习的内容,实际上不用付费,只要点击“去支付”按钮即可</p>
+				</div>
+				<div class="window">
+					<div class="win_title">
+						<p>本内容为付费内容,请支付</p>
+					</div>
+					<div class="win_content">
+						<p style="font-size: 12px;line-height: 1em">这是我的遮罩层学习的内容,实际上不用付费,只要点击“去支付”按钮即可。</p>
+						<p style="font-size: 20px;">你正在阅读内容:如何乘动车(俗称高铁),本内容为付费内容,若要阅读请支付
+						<span class="price">3000</span>
+						点数,购买后<span class="price">2</span>周有效</p>
+						<p style="font-size: 20px;">本商品支持体验金支付</p>
+						<table>
+							<tr>
+								<td><input name="method" value="TNDSPay" checked="checked" type="radio" />点数支付(推荐)</td>
+								<td><input name="method" value="Alipay" type="radio" />支付宝</td>
+								<td><input name="method" value="Wechat" type="radio" />微信</td>
+							</tr>
+							<tr>
+								<td><input name="method" value="Bank" type="radio" />银行划账</td>
+								<td><input name="method" value="eCNY" type="radio" />数字人民币</td>
+								<td><input name="method" value="TNDSPayEP" type="radio" />点数支付企业版</td>
+							</tr>
+						</table>
+						<p style="font-size: 12px;line-height: 1em">兑换比例:CNY 1=>Pt 1000</p>
+						<p style="font-size: 12px;line-height: 1em">新用户赠送Pt 6000体验金,注册即打到点数支付账户,仅限在TNDS旗下网站购买TNDS虚拟商品</p>
+						<button id="topay">去支付(不用付钱)</button>
+					</div>
+				</div>
+			</div>
 			<div id="title">
 				<h1>39郑毅工作室</h1>
 				<h3>Thirty-Nine David Studio</h3>

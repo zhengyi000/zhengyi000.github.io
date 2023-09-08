@@ -6,6 +6,7 @@
 		<link href="../css/index.css" rel="stylesheet" type="text/css" />
 		<link href="../css/blogs.css" rel="stylesheet" type="text/css" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="http://cdn.staticfile.org/jquery/3.7.1/jquery.js"></script>
 	</head>
 	<style>
 		article,
@@ -83,7 +84,19 @@
 						<p>收到后请填写附送的回执,通过邮寄的方式寄回</p>
 						<p>也可以通过拍照发电子邮件的方式寄回</p>
 					</article>
+					<article id="timer">
+						<script>
+							$(function (){
+								var date1=new Date("2023,11,25");
+								var date2=new Date();
+								var date3=date1-date2;
+								let re=parseInt(date3/(1000*60*60*24))
+								$("#cntd").text(re)
+							})
+							</script>
+						<h2>距离2023郑毅18周岁生日会暨成人礼还有<span id="cntd" style="font-size:40px;color: crimson;line-height: 2em;">X</span>天</h2>
 				</section>
+				<se
 			</article>
 		</main>
 		
