@@ -27,7 +27,7 @@ footer{
 #title{
 	float: left;
 	/* color: #4d93da; */
-	color: crimson;
+	color: purple;
 }
 
 
@@ -91,6 +91,6 @@ main{
 .cntd{
 	font-size:40px;
 	/* color: #4d93da; */
-	color: crimson;
+	color: purple;
 	line-height: 1em;
 }
